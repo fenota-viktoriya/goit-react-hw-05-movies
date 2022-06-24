@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Navigation from "../Navigation";
 import Home from "../Home";
 import Movies from "../Movies";
-import NotFound from "../NotFound ";
+
 import { Container, Header} from "./App.styled";
 
 
@@ -15,7 +15,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-         <Route path="*" element={<NotFound/>} />
+         <Route path="*" element={<Home/>} />
       </Routes>  
     </Container>
   );
