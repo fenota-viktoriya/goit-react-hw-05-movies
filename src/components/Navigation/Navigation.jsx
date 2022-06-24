@@ -11,7 +11,7 @@ const Navigation = () => {
           <StyledLink 
             to="/"
            
-                      end
+                      
           >  Home
    
           </StyledLink >
@@ -19,7 +19,7 @@ const Navigation = () => {
           <StyledLink 
             to="/movies"
        
-                      end
+                      
           >
             Movies
           </StyledLink >

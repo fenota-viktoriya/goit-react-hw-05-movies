@@ -5,7 +5,8 @@ import { getGenres } from "service/getGenres";
 
 const MovieDetails = () => {
 
-    const  {movieId}= useParams();
+    const {movieId}= useParams();
+    console.log(movieId);
  
     const [movie, setMovie] = useState('');
     useEffect(() => {
@@ -17,6 +18,8 @@ const MovieDetails = () => {
         <p>Overview</p>
         <p>{movie.overview}</p>
         <p>Ganres: {getGenres(movie.genres)}</p>
-        </div>
+        
+    </div>
+    
 };
 export default MovieDetails;
