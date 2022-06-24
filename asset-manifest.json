@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/goit-react-hw-05-movies/static/js/main.c4cb721f.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.ecaca397.js",
     "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.c4cb721f.js.map": "/goit-react-hw-05-movies/static/js/main.c4cb721f.js.map"
+    "main.ecaca397.js.map": "/goit-react-hw-05-movies/static/js/main.ecaca397.js.map"
   },
   "entrypoints": [
-    "static/js/main.c4cb721f.js"
+    "static/js/main.ecaca397.js"
   ]
 }
