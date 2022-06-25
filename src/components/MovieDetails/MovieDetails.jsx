@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { DetailsMovies } from '../../service/Api'
-import { useParams } from "react-router-dom";
+
 import { getGenres } from "service/getGenres";
 
-const MovieDetails = () => {
+const MovieDetails = ({movieId}) => {
 
-    const {movieId}= useParams();
-    console.log(movieId);
  
-    const [movie, setMovie] = useState('');
+    const [movie, setMovie] = useState([]);
     useEffect(() => {
         DetailsMovies(movieId).then(data => setMovie(data))
     }, [movieId])
@@ -18,8 +16,6 @@ const MovieDetails = () => {
         <p>Overview</p>
         <p>{movie.overview}</p>
         <p>Ganres: {getGenres(movie.genres)}</p>
-        
-    </div>
-    
+        </div>
 };
 export default MovieDetails;

@@ -1,23 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import Navigation from "../Navigation";
-import Home from "../Home";
-import MovieDetails from "../MovieDetails/MovieDetails";
-import Movies from "components/Movies";
-import { Container, Header} from "./App.styled";
+import { Container} from "./App.styled";
+import HomePage from "pages/HomePage";
+import MoviePage from "pages/MoviesPage";
+import NotFound from "pages/NotFound";
+import MovieDetailsPage from "pages/MovieDetailsPage";
+
 
 
 export const App = () => {
   return (
     <Container>
-      <Header>
-        <Navigation />
-      </Header>
       <Routes>
-        <Route path="/" element={<Home />} />
-         <Route path="/movies/:movieId" element={<MovieDetails/>} />
-        <Route path="/movies" element={<Movies />} />
-       
-         <Route path="*" element={<Home/>} />
+        <Route path="/" element={<Navigation/>}>
+        <Route index element={<HomePage/>}/>
+          <Route path="/movies" element={<MoviePage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage/>} />
+        <Route path="*" element={<NotFound/>}/>     
+        </Route>
+        
       </Routes>  
     </Container>
   );
