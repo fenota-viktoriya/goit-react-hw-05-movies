@@ -34,6 +34,7 @@ export async function DetailsMovies(id) {
     console.error(error);
   }
 };
+
 export async function CreditsMovie(movie_id) {
   try {
     const res = await axios.get(`3/movie/${movie_id}/credits`);
@@ -43,6 +44,7 @@ export async function CreditsMovie(movie_id) {
     console.error(error);
   }
 };
+
 export async function ReviewsMovie(movie_id) {
   try {
     const res = await axios.get(`3/movie/${movie_id}/reviews`);

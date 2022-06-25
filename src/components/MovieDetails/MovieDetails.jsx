@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { DetailsMovies } from '../../service/Api'
-
 import { getGenres } from "service/getGenres";
 
 const MovieDetails = ({movieId}) => {
