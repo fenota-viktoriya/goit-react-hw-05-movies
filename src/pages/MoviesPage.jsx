@@ -15,14 +15,13 @@ export const MoviePage = () => {
 
     useEffect(() => {
         if (!curentPos) return;
-        console.log(curentPos)
             SearchMovie(curentPos).then(data => {setMovies(data)});   
-    },[curentPos, searchParams])
+    },[curentPos])
     
 
     const onSubmitForm = e => {
         e.preventDefault();
-        setSearchParams({ query:query }) 
+        setSearchParams({ query: query }) 
     }
     return <>
    <form onSubmit={onSubmitForm}>
