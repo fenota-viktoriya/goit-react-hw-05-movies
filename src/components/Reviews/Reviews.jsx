@@ -1,2 +1,4 @@
-const Reviews = () => {return <h1>rewiews</h1> }
+const Reviews = () => {
+    return <h1>reviews</h1>
+}
 export default Reviews;

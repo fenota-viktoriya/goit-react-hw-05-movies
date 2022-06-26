@@ -1,12 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Navigation from "../Navigation";
 import { Container} from "./App.styled";
-import HomePage from "pages/HomePage";
-import MoviePage from "pages/MoviesPage";
-import NotFound from "pages/NotFound";
-import MovieDetailsPage from "pages/MovieDetailsPage";
+import {HomePage,MovieDetailsPage,MoviePage} from "pages";
 import Reviews from "components/Reviews/Reviews";
 import Cast from "components/Cast/Cast.styled";
+
 
 
 
@@ -22,7 +20,7 @@ export const App = () => {
            <Route path="reviews" element={<Reviews/>}/>
           </Route>
         </Route>
-         <Route path="*" element={<NotFound/>}/>  
+         <Route path="*" element={<Navigate to="/"/>}/>  
       </Routes>  
     </Container>
   );

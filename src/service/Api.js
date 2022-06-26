@@ -1,4 +1,7 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
+
+//const notify = () => toast('Here is your toast.');
 
 axios.defaults.baseURL= 'https://api.themoviedb.org';
 
@@ -9,29 +12,28 @@ axios.defaults.params = {
 export async function TreandingMovies() {
   try {
     const res = await axios.get(`/3/trending/movie/day`);
-
-    return res.data;
+    return res.data.results;
   } catch (error) {
-    console.error(error);
+toast.error('Not Found');
+    
   }
 };
 export async function SearchMovie(query) {
   try {
     const res = await axios.get(`/3/search/movie?query=${query}`);
 
-    return res.data;
+    return res.data.results;
   } catch (error) {
-    console.error(error);
+   toast.error('Not Found');
   }
 };
 export async function DetailsMovies(id) {
   
   try {
     const res = await axios.get(`/3/movie/${id}`);
-
     return res.data;
   } catch (error) {
-    console.error(error);
+toast.error('Not Found');
   }
 };
 
@@ -41,7 +43,7 @@ export async function CreditsMovie(movie_id) {
 
     return res.data;
   } catch (error) {
-    console.error(error);
+toast.error('Not Found');
   }
 };
 
