@@ -1,7 +1,11 @@
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-//const notify = () => toast('Here is your toast.');
+import Axios from 'axios'
+
+ 
+Axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+
 
 axios.defaults.baseURL= 'https://api.themoviedb.org';
 

@@ -1,17 +1,19 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+import  { Suspense, lazy } from 'react';
 import Navigation from "../Navigation";
 import { Container} from "./App.styled";
-import {HomePage,MovieDetailsPage,MoviePage} from "pages";
 import Reviews from "components/Reviews/Reviews";
 import Cast from "components/Cast/Cast.styled";
 
-
-
+const HomePage = lazy(() => import('../../pages/HomePage').then(module=>({default: module.HomePage})));
+const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage').then(module=>({default: module.MovieDetailsPage})));
+const MoviePage= lazy(() => import('../../pages/MoviesPage').then(module=>({default: module.MoviePage})));
 
 export const App = () => {
   return (
     <Container>
-      <Routes>
+      <Suspense fallback="">
+        <Routes>
         <Route path="/" element={<Navigation/>}>
         <Route index element={<HomePage/>}/>
           <Route path="movies" element={<MoviePage />} />
@@ -21,7 +23,9 @@ export const App = () => {
           </Route>
         </Route>
          <Route path="*" element={<Navigate to="/"/>}/>  
-      </Routes>  
+        </Routes>
+      </Suspense>
+      
     </Container>
   );
 };
