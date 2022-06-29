@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import  { Suspense, lazy } from 'react';
+import  { lazy } from 'react';
 import Navigation from "../Navigation";
 import { Container} from "./App.styled";
 import Reviews from "components/Reviews/Reviews";
@@ -12,7 +12,7 @@ const MoviePage= lazy(() => import('../../pages/MoviesPage').then(module=>({defa
 export const App = () => {
   return (
     <Container>
-      <Suspense fallback="">
+     
         <Routes>
         <Route path="/" element={<Navigation/>}>
         <Route index element={<HomePage/>}/>
@@ -24,7 +24,7 @@ export const App = () => {
         </Route>
          <Route path="*" element={<Navigate to="/"/>}/>  
         </Routes>
-      </Suspense>
+    
       
     </Container>
   );
