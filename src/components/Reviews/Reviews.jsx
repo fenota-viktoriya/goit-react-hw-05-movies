@@ -8,8 +8,13 @@ const Reviews = () => {
 
     useEffect(() => {
         ReviewsMovie(movieId).then(({ results }) => {setMovies(results) });
-    },[movieId])
+    }, [movieId])
+    
+    console.log(movies)
 
-    return <p>{movies.map(it=> it.content)}</p>
+    return <ul>
+         {movies.length === 0 && <h1>no reviews</h1>}
+        
+        {movies.map(({ author, content, id }) => <li key={id}> <p>Author:{author}</p> <p>Review:{content}</p></li>)}</ul>
 }
 export default Reviews;

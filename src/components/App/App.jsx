@@ -3,7 +3,7 @@ import  { lazy } from 'react';
 import Navigation from "../Navigation";
 import { Container} from "./App.styled";
 import Reviews from "components/Reviews/Reviews";
-import Cast from "components/Cast/Cast.styled";
+import Cast from "components/Cast/Cast";
 
 const HomePage = lazy(() => import('../../pages/HomePage').then(module=>({default: module.HomePage})));
 const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage').then(module=>({default: module.MovieDetailsPage})));
@@ -18,7 +18,7 @@ export const App = () => {
         <Route index element={<HomePage/>}/>
           <Route path="movies" element={<MoviePage />} />
           <Route path="movies/:movieId/" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<Cast />}/>
+          <Route path="cast" element={<Cast/>}/>
            <Route path="reviews" element={<Reviews/>}/>
           </Route>
         </Route>
