@@ -8,7 +8,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         TreandingMovies().then(setMovies);
-    },[]);  
+    }, []);  
     return (<>
         <h1>Trending today</h1>
         <MovieList movies={movies} />

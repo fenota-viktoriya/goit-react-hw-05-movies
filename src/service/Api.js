@@ -1,12 +1,10 @@
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-import Axios from 'axios'
+
 
  
-Axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-
-
+axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL= 'https://api.themoviedb.org';
 
 axios.defaults.params = {
