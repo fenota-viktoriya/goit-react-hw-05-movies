@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { FcSearch } from "react-icons/fc";
+import { FcSearch } from 'react-icons/fc';
 import { MovieList } from 'components/MovieList';
 import { SearchMovie } from 'service/Api';
-import { Form,Btn ,Input} from './Pages.styled';
+import { Form, Btn, Input } from './Pages.styled';
 
 export const MoviePage = () => {
   const [query, setQuery] = useState('');
@@ -41,7 +41,9 @@ export const MoviePage = () => {
     <>
       <Form onSubmit={onSubmitForm}>
         <Input type="search" name={query} onChange={handelInputChange} />
-        <Btn type="submit"><FcSearch/></Btn>
+        <Btn type="submit">
+          <FcSearch />
+        </Btn>
       </Form>
       <MovieList movies={movies} />
     </>

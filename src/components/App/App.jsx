@@ -3,7 +3,6 @@ import { lazy } from 'react';
 import { Navigation } from '../Navigation';
 import { Container } from './App.styled';
 
-
 const HomePage = lazy(() =>
   import('../../pages/HomePage').then(module => ({ default: module.HomePage }))
 );
@@ -29,7 +28,6 @@ const Cast = lazy(() =>
   }))
 );
 
-
 export const App = () => {
   return (
     <Container>
@@ -42,7 +40,7 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
-     <Route path="*" element={<Navigate to= "/"/>} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Container>
   );
