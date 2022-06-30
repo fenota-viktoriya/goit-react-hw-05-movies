@@ -1,1 +1,1 @@
-export {default} from './MovieList'
+export {MovieList} from './MovieList'

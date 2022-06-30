@@ -1,25 +1,20 @@
 import { Outlet } from 'react-router-dom';
-import  { Toaster } from 'react-hot-toast';
-import { Nav, StyledLink, } from './Navigation.styled'
-import  { Suspense} from 'react';
+import { Toaster } from 'react-hot-toast';
+import { Suspense } from 'react';
+import { Nav, StyledLink } from './Navigation.styled';
 
 
-
-const Navigation = () => {
+export const Navigation = () => {
   return (
     <>
       <Nav>
-          <StyledLink  to="/" >Home</StyledLink >      
-          <StyledLink to="/movies" >Movies</StyledLink >  
-      </Nav>   
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/movies">Movies</StyledLink>
+      </Nav>
       <Toaster />
-       <Suspense fallback="Loading..."><Outlet /></Suspense>
-  
-    
+      <Suspense fallback="Loading...">
+        <Outlet />
+      </Suspense>
     </>
   );
-}
-
-    
-
-export default Navigation;
+};
