@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 export const BackLink = () => {
   const location = useLocation();
+
   return (
-    <Link to={location?.state?.from ?? '/movies'}>
+    <Link to={location?.state?.from ?? '/'}>
       <GrLinkPrevious />
     </Link>
   );

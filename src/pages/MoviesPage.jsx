@@ -30,7 +30,7 @@ export const MoviePage = () => {
       toast.error('Enter the text');
       return;
     }
-    setSearchParams({ query: query });
+    setSearchParams({ query: query.trim() });
   };
   const handelInputChange = e => {
     const text = e.currentTarget.value.toLowerCase();

@@ -4,6 +4,7 @@ import { FilmItem, FilmList } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
   const location = useLocation();
+ 
   return (
     <FilmList>
       {movies &&
@@ -18,5 +19,5 @@ export const MovieList = ({ movies }) => {
   );
 };
 MovieList.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.array,
 };

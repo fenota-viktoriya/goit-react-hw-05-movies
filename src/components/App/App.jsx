@@ -2,8 +2,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import { Navigation } from '../Navigation';
 import { Container } from './App.styled';
-import { Reviews } from 'components/Reviews';
-import { Cast } from 'components/Cast';
+
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage').then(module => ({ default: module.HomePage }))
@@ -18,6 +17,18 @@ const MoviePage = lazy(() =>
     default: module.MoviePage,
   }))
 );
+const Reviews = lazy(() =>
+  import('../Reviews/Reviews').then(module => ({
+    default: module.Reviews,
+  }))
+);
+
+const Cast = lazy(() =>
+  import('../Cast/Cast').then(module => ({
+    default: module.Cast,
+  }))
+);
+
 
 export const App = () => {
   return (
@@ -31,7 +42,7 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
+     <Route path="*" element={<Navigate to= "/"/>} />
       </Routes>
     </Container>
   );
