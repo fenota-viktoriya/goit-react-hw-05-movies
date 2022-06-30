@@ -8,9 +8,7 @@ export const GlobalStyles = css`
   }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+  font-family: 'Noto Serif', serif;
     background-color: ${theme.colors.light};
     min-height: 100vh;
     font-style: normal;
@@ -22,7 +20,7 @@ export const GlobalStyles = css`
   h5,
   h6,
   p {
-    margin-top: 0;
+    margin: 0;
   }
   ul,
   ol
