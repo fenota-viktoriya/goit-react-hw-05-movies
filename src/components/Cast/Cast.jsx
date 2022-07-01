@@ -6,17 +6,20 @@ import { List, Item, Title, Image, Info } from './Cast.styled';
 export const Cast = () => {
   const { movieId } = useParams();
   const [movies, setMovies] = useState([]);
-
+  const [errors, setError] = useState(false);
 
   useEffect(() => {
-    CreditsMovie(movieId).then(data => {
-      if (!data.cast) return;
-      setMovies(data.cast);
-    });
+    CreditsMovie(movieId)
+      .then(data => {
+        if (!data.cast) return;
+        setMovies(data.cast);
+      })
+      .catch(() => setError(true));
   }, [movieId]);
 
   return (
     <List>
+      {errors && <div>NOT FOUND</div>}
       {movies.length === 0 && <h1>no info</h1>}
       {movies.map(
         ({ profile_path, character, name, id }) =>

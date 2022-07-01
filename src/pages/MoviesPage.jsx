@@ -15,14 +15,17 @@ export const MoviePage = () => {
 
   useEffect(() => {
     if (!curentPos) return;
-    SearchMovie(curentPos).then(data => {
-      if (data.length === 0) {
-        toast.error('No found');
-        return;
-      }
-      setMovies(data);
-    });
-  }, [curentPos]);
+    SearchMovie(curentPos)
+      .then(data => {
+        if (data.length === 0) {
+          toast.error('No found');
+          setSearchParams({});
+          return;
+        }
+        setMovies(data);
+      })
+      .catch(error => console.error(error));
+  }, [curentPos, setSearchParams]);
 
   const onSubmitForm = e => {
     e.preventDefault();

@@ -8,9 +8,13 @@ export const Reviews = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    ReviewsMovie(movieId).then(({ results }) => {
-      setMovies(results);
-    });
+    ReviewsMovie(movieId)
+      .then(({ results }) => {
+        if (results) {
+          return setMovies(results);
+        }
+      })
+      .catch(error => console.error(error));
   }, [movieId]);
 
   return (
