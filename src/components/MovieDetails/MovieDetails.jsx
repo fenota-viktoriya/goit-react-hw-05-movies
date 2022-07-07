@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useParams, Outlet, Navigate,useNavigate} from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { useParams, Outlet, Navigate,useLocation} from 'react-router-dom';
 import { Links, List } from '../../pages/Pages.styled';
 import { DetailsMovies } from '../../service/Api';
 import { getGenres } from 'service/getGenres';
+import { BackLink } from 'components/BackLink/BackLink';
 
 import {
   Image,
@@ -17,7 +18,7 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const { title, poster_path, popularity, overview, genres } = movie;
   const [error, setError] = useState(false); 
-  
+
 
   useEffect(() => {
     DetailsMovies(movieId)
@@ -28,15 +29,18 @@ export const MovieDetails = () => {
       .catch(error => { console.error(error); setError(true)});
   }, [movieId]);
 
+  const location = useLocation();
+  const href = location.state?.from ?? '/';
+  const search = useRef(location.state?.from?.search);
 
-  const navigate =  useNavigate();
 
-const goBack =()=>{navigate(-1)}
+
+
   return (
     <>
       {error && <Navigate to ='/' replace/>}
      
-      <button onClick={goBack}> go back</button>
+ <BackLink href={href}/>
       {movie.length !== 0 && (
         <>
           <Section>
@@ -56,10 +60,10 @@ const goBack =()=>{navigate(-1)}
           </Section>
           <List>
             <li>
-              <Links to="cast"  >Cast</Links>
+              <Links to="cast" state={{from:`/movies${search.current}`}} >Cast</Links>
             </li>
             <li>
-              <Links to="reviews" > Reviews</Links>
+              <Links to="reviews"state={{from:`/movies${search.current}`}} > Reviews</Links>
             </li>
           </List>
           <Outlet />
