@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useParams, Outlet, Navigate,useLocation} from 'react-router-dom';
+import { useParams, Outlet, Navigate, useLocation } from 'react-router-dom';
 import { Links, List } from '../../pages/Pages.styled';
 import { DetailsMovies } from '../../service/Api';
 import { getGenres } from 'service/getGenres';
@@ -17,30 +17,30 @@ export const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
   const { title, poster_path, popularity, overview, genres } = movie;
-  const [error, setError] = useState(false); 
-
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     DetailsMovies(movieId)
       .then(data => {
-        if (data.length !==0)
-      {  return setMovie(data);}
+        if (data.length !== 0) {
+          return setMovie(data);
+        }
       })
-      .catch(error => { console.error(error); setError(true)});
+      .catch(error => {
+        console.error(error);
+        setError(true);
+      });
   }, [movieId]);
 
   const location = useLocation();
   const href = location.state?.from ?? '/';
   const search = useRef(location.state?.from?.search);
 
-
-
-
   return (
     <>
-      {error && <Navigate to ='/' replace/>}
-     
- <BackLink href={href}/>
+      {error && <Navigate to="/" replace />}
+
+      <BackLink href={href} />
       {movie.length !== 0 && (
         <>
           <Section>
@@ -60,10 +60,15 @@ export const MovieDetails = () => {
           </Section>
           <List>
             <li>
-              <Links to="cast" state={{from:`/movies${search.current}`}} >Cast</Links>
+              <Links to="cast" state={{ from: `/movies${search.current}` }}>
+                Cast
+              </Links>
             </li>
             <li>
-              <Links to="reviews"state={{from:`/movies${search.current}`}} > Reviews</Links>
+              <Links to="reviews" state={{ from: `/movies${search.current}` }}>
+                {' '}
+                Reviews
+              </Links>
             </li>
           </List>
           <Outlet />
