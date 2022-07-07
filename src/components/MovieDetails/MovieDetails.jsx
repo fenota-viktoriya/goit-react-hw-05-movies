@@ -60,12 +60,22 @@ export const MovieDetails = () => {
           </Section>
           <List>
             <li>
-              <Links to="cast" state={{ from: `/movies${search.current}` }}>
+              <Links
+                to="cast"
+                state={{
+                  from: search.current ? `/movies${search.current}` : '/',
+                }}
+              >
                 Cast
               </Links>
             </li>
             <li>
-              <Links to="reviews" state={{ from: `/movies${search.current}` }}>
+              <Links
+                to="reviews"
+                state={{
+                  from: search.current ? `/movies${search.current}` : '/',
+                }}
+              >
                 {' '}
                 Reviews
               </Links>
